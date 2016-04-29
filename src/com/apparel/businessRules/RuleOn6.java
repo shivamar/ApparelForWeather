@@ -14,7 +14,11 @@ public class RuleOn6 implements IRule {
 	/**
 	 * 
 	 */
-	public String executeRule(ApparelWeatherInformation model) throws Exception {	
+	public String executeRule(ApparelWeatherInformation model) throws Exception {
+		//only one piece of each type can be worn
+		if(model.getApparelWorn(Integer.parseInt(sCommand)-1) == true) return sFail;
+					
+		model.setApparelWorn(5, true);
 		if(model.getCurrWeather().equals(Weather.COLD))			
 			return sAction_Cold;
 		else 

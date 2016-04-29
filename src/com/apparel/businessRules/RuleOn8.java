@@ -13,10 +13,11 @@ public class RuleOn8 implements IRule {
 	 *  
 	 */
 	@Override
-	public String executeRule(ApparelWeatherInformation model) {		 
+	public String executeRule(ApparelWeatherInformation model) {	
+		//only one piece of each type can be worn
 		if(model.getApparelWorn(Integer.parseInt(sCommand)-1) == true) return sFail;
 		
-		model.setApparelWorn(8, true);
+		model.setApparelWorn(7, true);
 		return sAction;
 	}
 	

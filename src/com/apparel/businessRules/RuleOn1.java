@@ -11,10 +11,11 @@ public class RuleOn1 implements IRule {
 	private static final String sFail = "fail";
 	
 	@Override
-	public String executeRule(ApparelWeatherInformation model) throws Exception {				
-		///socks and pants must be worn
-		model.setApparelWorn(1, true);
+	public String executeRule(ApparelWeatherInformation model) throws Exception {						
+		//only one piece of each type can be worn
+		if(model.getApparelWorn(Integer.parseInt(sCommand)-1) == true) return sFail;
 		
+		///socks and pants must be worn;		
 		if(!checkIfSocksAreWorn(model)){
 			return sFail;
 		}
@@ -23,6 +24,7 @@ public class RuleOn1 implements IRule {
 			return sFail;
 		}
 		
+		model.setApparelWorn(0, true);		
 		if(model.getCurrWeather().equals(Weather.COLD))
 			return sAction_Cold;
 		else return sAction_Hot;

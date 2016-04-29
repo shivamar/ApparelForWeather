@@ -12,13 +12,17 @@ import com.apparel.service.RulesProcessor;
 public class DecisionEngine {
 
 	public static void main(String[] inputArgs) {
+		parseInput(inputArgs);
+	}
+	
+	private static void parseInput(String[] inputArgs){
 		int counter = 0;
 		Weather currWeather;
 		
-		if(inputArgs[0] == "COLD"){
+		if(inputArgs[0].equals("COLD")){
 			currWeather = Weather.COLD;
 		}
-		else if(inputArgs[0] == "HOT"){
+		else if(inputArgs[0].equals("HOT")){
 			currWeather = Weather.HOT;
 		}
 		else {
@@ -35,7 +39,7 @@ public class DecisionEngine {
 		for(int i=1; i < inputArgs.length; i++)
 		{			
 			//initial state should always be removing pajamas
-			if(i==1 && inputArgs[i] != "8"){
+			if(i==1 && !"8".equals(inputArgs[i])){
 					strB.append("fails");				
 					break;
 			}
@@ -49,12 +53,13 @@ public class DecisionEngine {
 			
 			strB.append(response);
 			
-			if(i != inputArgs.length){
+			if(i != inputArgs.length-1){
 				strB.append(",");
 			}			
 		}
 		
-		print(strB.toString());		
+		print(strB.toString());	
+		
 	}
 	
 	private static void print(String msg) {

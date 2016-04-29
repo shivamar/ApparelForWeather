@@ -18,13 +18,16 @@ public class RuleOn7 implements IRule{
 	 */
 	@Override
 	public String executeRule(ApparelWeatherInformation model) throws Exception {
+		//only one piece of each type can be worn
+		if(model.getApparelWorn(Integer.parseInt(sCommand)-1) == true) return sFail;					
+				
 		boolean[] apparelHistory = model.getApparelWorn();
 		
 		if(!checkWetherAllApparelAreWorn(apparelHistory, model.getCurrWeather())){
 			return sFail;
 		}
 		
-		model.setApparelWorn(7, true);
+		model.setApparelWorn(6, true);
 		return sAction;
 	}
 
@@ -42,7 +45,7 @@ public class RuleOn7 implements IRule{
 			
 			for(int i=0;i<apparelHistory.length;i++)
 			{
-				if(i != currCommand 
+				if(i != currCommand-1
 				   && apparelHistory[i] != true){
 					return false;
 				}
@@ -52,16 +55,13 @@ public class RuleOn7 implements IRule{
 			
 			for(int i=0;i<apparelHistory.length;i++)
 			{
-				if(i != 3
-				   && i != 5 
-				   && i != currCommand 
+				if(i != 2
+				   && i != 4 
+				   && i != (currCommand -1)
 				   && apparelHistory[i] != true){
 					return false;
 				}
 			}			
-		}
-		else{
-			throw new InvalidCommandException();
 		}
 		
 		return true;

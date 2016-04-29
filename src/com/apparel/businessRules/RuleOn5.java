@@ -10,7 +10,11 @@ public class RuleOn5 implements IRule {
 	private static final String sFail = "fail";
 		
 	@Override
-	public String executeRule(ApparelWeatherInformation model) throws Exception {		
+	public String executeRule(ApparelWeatherInformation model) throws Exception {
+		//only one piece of each type can be worn
+		if(model.getApparelWorn(Integer.parseInt(sCommand)-1) == true) return sFail;
+					
+		model.setApparelWorn(4, true);
 		if(model.getCurrWeather().equals(Weather.HOT))			
 			return sFail;
 		if(!checkIfShirtIsWorn(model))
