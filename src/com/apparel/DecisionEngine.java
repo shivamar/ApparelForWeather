@@ -12,56 +12,59 @@ import com.apparel.service.RulesProcessor;
 public class DecisionEngine {
 
 	public static void main(String[] inputArgs) {
-		parseInput(inputArgs);
+		 String sResult = buildResultString(inputArgs);
+		 print(sResult);
 	}
 	
-	private static void parseInput(String[] inputArgs){
+	private static String buildResultString(String[] inputArgs) {
 		int counter = 0;
 		Weather currWeather;
-		
-		if(inputArgs[0].equals("COLD")){
+		inputArgs[0] = sanitiseString(inputArgs[0]);
+		if ("COLD".equals(inputArgs[0])) {
 			currWeather = Weather.COLD;
-		}
-		else if(inputArgs[0].equals("HOT")){
+		} else if ("HOT".equals(inputArgs[0])) {
 			currWeather = Weather.HOT;
+		} else {
+			return "fail";
 		}
-		else {
-			print("fail");		
-			return;
-		}
-		
-		ApparelWeatherInformation apparelInfo = new ApparelWeatherInformation(currWeather,8);	
-		
+
+		ApparelWeatherInformation apparelInfo = new ApparelWeatherInformation(
+				currWeather, 8);
+
 		String response;
 		StringBuilder strB = new StringBuilder();
-		RulesProcessor rProc = RulesProcessor.getInstance();
-		
-		for(int i=1; i < inputArgs.length; i++)
-		{			
-			//initial state should always be removing pajamas
-			if(i==1 && !"8".equals(inputArgs[i])){
-					strB.append("fails");				
-					break;
-			}
-			
-			response = rProc.processRule(apparelInfo, inputArgs[i]);
-			
-			if("fails".equals(response)){
-				strB.append(response);				
+		RulesProcessor rulesProcessor = RulesProcessor.getInstance();
+
+		for (int i = 1; i < inputArgs.length; i++) {
+			inputArgs[i] = sanitiseString(inputArgs[i]);
+
+			// initial state should always be removing pajamas
+			if (i == 1 && !"8".equals(inputArgs[i])) {
+				strB.append("fails");
 				break;
 			}
-			
+			response = rulesProcessor.processRule(apparelInfo, inputArgs[i]);
+			if ("fails".equals(response)) {
+				strB.append(response);
+				break;
+			}
 			strB.append(response);
-			
-			if(i != inputArgs.length-1){
+			if (i != inputArgs.length - 1) {
 				strB.append(",");
-			}			
+			}
 		}
-		
-		print(strB.toString());	
-		
+
+		return strB.toString();
 	}
 	
+	private static String sanitiseString(String string) {
+		if(string != null){
+			string = string.replace(',','\0');
+			string = string.trim();			
+		}
+		return string;
+	}
+
 	private static void print(String msg) {
 		System.out.println(msg);
 	}
