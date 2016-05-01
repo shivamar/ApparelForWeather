@@ -5,7 +5,7 @@ import com.apparel.model.Weather;
 import com.apparel.utility.InvalidCommandException;
 
 public class RuleOn7 implements IRule{
-	private static final String sAction = "leaving House";
+	private static final String sAction = "leaving house";
 	private static String sCommand = "7";
 	private static final String sDesc = "Leave House";
 	private static final String sFail = "fail";
@@ -16,7 +16,6 @@ public class RuleOn7 implements IRule{
 	 * You cannot leave the house until all the apparel had been completed
 	 * @throws Exception 
 	 */
-	@Override
 	public String executeRule(ApparelWeatherInformation model) throws Exception {
 		//only one piece of each type can be worn
 		if(model.getApparelWorn(Integer.parseInt(sCommand)-1) == true) return sFail;					

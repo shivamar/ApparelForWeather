@@ -4,13 +4,12 @@ import com.apparel.model.ApparelWeatherInformation;
 import com.apparel.model.Weather;
 
 public class RuleOn2 implements IRule {
-	private static final String sAction_Hot = "Sun Visor";
-	private static final String sAction_Cold = "Hat";
+	private static final String sAction_Hot = "sun visor";
+	private static final String sAction_Cold = "hat";
 	private static String sCommand = "2";
 	private static final String sDesc = "Put on Headwear";
 	private static final String sFail = "fail";
 	
-	@Override
 	/**
 	 * checks if shirt is on before headwear is worn
 	 */

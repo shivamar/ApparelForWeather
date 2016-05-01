@@ -4,12 +4,11 @@ import com.apparel.model.ApparelWeatherInformation;
 import com.apparel.model.Weather;
 
 public class RuleOn3 implements IRule{
-	private static final String sAction_Cold = "Sun Visor";
+	private static final String sAction_Cold = "sun visor";
 	private static String sCommand = "3";
 	private static final String sDesc = "Put on socks";
 	private static final String sFail = "fail";
 	
-	@Override
 	/**
 	 * if its hot, print fail else put on socks
 	 */

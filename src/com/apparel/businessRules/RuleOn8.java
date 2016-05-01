@@ -12,7 +12,6 @@ public class RuleOn8 implements IRule {
 	 * Checks if the apparel had already been taken off
 	 *  
 	 */
-	@Override
 	public String executeRule(ApparelWeatherInformation model) {	
 		//only one piece of each type can be worn
 		if(model.getApparelWorn(Integer.parseInt(sCommand)-1) == true) return sFail;

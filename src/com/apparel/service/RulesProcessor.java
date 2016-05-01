@@ -16,6 +16,9 @@ import com.apparel.model.ApparelWeatherInformation;
 
 /**
  * A singleton Class mapping the rules with apparels
+ * It provides a method processRules 
+ * which calls the respective Rule 
+ * depending upon the input command
  * @author Shiva
  *
  */
