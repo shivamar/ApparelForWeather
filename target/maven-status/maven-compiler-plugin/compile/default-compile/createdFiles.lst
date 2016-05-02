@@ -1,0 +1,15 @@
+com\apparel\DecisionEngineMain.class
+com\apparel\service\RulesProcessor.class
+com\apparel\businessRules\RuleOn5.class
+com\apparel\businessRules\RuleOn6.class
+com\apparel\model\Weather.class
+com\apparel\service\DecisionEngine.class
+com\apparel\businessRules\IRule.class
+com\apparel\businessRules\RuleOn3.class
+com\apparel\utility\InvalidCommandException.class
+com\apparel\businessRules\RuleOn7.class
+com\apparel\businessRules\RuleOn2.class
+com\apparel\businessRules\RuleOn8.class
+com\apparel\model\ApparelWeatherInformation.class
+com\apparel\businessRules\RuleOn1.class
+com\apparel\businessRules\RuleOn4.class
