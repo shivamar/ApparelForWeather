@@ -8,7 +8,6 @@ public class RuleOn2 implements IRule {
 	private static final String sAction_Cold = "hat";
 	private static String sCommand = "2";
 	private static final String sDesc = "Put on Headwear";
-	private static final String sFail = "fail";
 	
 	/**
 	 * checks if shirt is on before headwear is worn

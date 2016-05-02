@@ -4,7 +4,7 @@ import com.apparel.model.ApparelWeatherInformation;
 import com.apparel.model.Weather;
 
 public class RuleOn3 implements IRule{
-	private static final String sAction_Cold = "sun visor";
+	private static final String sAction_Cold = "socks";
 	private static String sCommand = "3";
 	private static final String sDesc = "Put on socks";
 	private static final String sFail = "fail";

@@ -20,27 +20,30 @@ public class DecisionEngineTest {
 
 	@Test
 	public void testCase1() {
-		String[] inputArgs={"HOT,", "8,", "6,", "4,", "2,", "1,", "7"};
+		String[] inputArgs={"HOT", "8,", "6,", "4,", "2,", "1,", "7"};
 		String expectedResult = "Removing PJs, shorts, t-shirt, sun visor, sandals, leaving house";
 		String result = dsT.buildResultString(inputArgs);
-		System.out.println(result);
+		assertEquals(result, expectedResult);
+		//System.out.println(result);
   }
 	
 	@Test
 	public void testCase2() {
 		//COLD 8, 6, 3, 4, 2, 5, 1, 7		
-		String[] inputArgs={"COLD,", "8,", "6,", "3", "4", "2", "5", "1", "7"};
+		String[] inputArgs={"COLD", "8,", "6,", "3", "4", "2", "5", "1", "7"};
 		String expectedResult = "Removing PJs, pants, socks, shirt, hat, jacket, boots, leaving house";
 		String result = dsT.buildResultString(inputArgs);
+		assertEquals(result, expectedResult);
 		System.out.println(result);
   }
 	
 	@Test
 	public void testCase3() {
-		String[] inputArgs={"HOT,", "8,", "6,", "6"};
+		String[] inputArgs={"HOT", "8,", "6,", "6"};
 		String expectedResult = "Removing PJs, shorts, fail";
 		String result = dsT.buildResultString(inputArgs);
-		System.out.println(result);
+		assertEquals(result, expectedResult);
+		//System.out.println(result);
   }
 	
 	@Test
@@ -48,7 +51,8 @@ public class DecisionEngineTest {
 		String[] inputArgs={"HOT,", "8,", "6,", "3"};
 		String expectedResult = "Removing PJs, shorts, fail";
 		String result = dsT.buildResultString(inputArgs);
-		System.out.println(result);
+		assertEquals(result, expectedResult);
+		//System.out.println(result);
   }
 	
 	@Test
@@ -56,15 +60,17 @@ public class DecisionEngineTest {
 		String[] inputArgs={"COLD,", "8,", "6,", "3,","4,", "2,", "5,", "7"};
 		String expectedResult = "Removing PJs, pants, socks, shirt, hat, jacket, fail";
 		String result = dsT.buildResultString(inputArgs);
+		assertEquals(result, expectedResult);
 		System.out.println(result);
   }
 	
 	@Test
 	public void testCase6() { //COLD 6
-		String[] inputArgs={"HOT,", "6,"};
-		String expectedResult = "Removing PJs, pants, socks, shirt, hat, jacket, fail";
+		String[] inputArgs={"COLD,", "6"};
+		String expectedResult = "fail";
 		String result = dsT.buildResultString(inputArgs);
-		System.out.println(result);
+		assertEquals(result, expectedResult);
+		//System.out.println(result);
   }
 
 }

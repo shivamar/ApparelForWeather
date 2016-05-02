@@ -7,7 +7,7 @@ public class RuleOn5 implements IRule {
 	private static final String sAction_Cold = "jacket";
 	private static String sCommand = "5";
 	private static final String sDesc = "Put on jacket";
-	private static final String sFail = "fail";
+	
 		
 	public String executeRule(ApparelWeatherInformation model) throws Exception {
 		//only one piece of each type can be worn
