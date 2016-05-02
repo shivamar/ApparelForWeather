@@ -1,9 +1,6 @@
 package com.apparel;
 
-import com.apparel.model.ApparelWeatherInformation;
-import com.apparel.model.Weather;
 import com.apparel.service.DecisionEngine;
-import com.apparel.service.RulesProcessor;
 
 /**
  * Processes the input and prints the results

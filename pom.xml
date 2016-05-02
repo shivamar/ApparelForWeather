@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ApparelForWeather</groupId>
   <artifactId>ApparelForWeather</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0</version>
    <dependencies>
 	    <dependency>
 	  		<groupId>junit</groupId>
@@ -22,7 +22,19 @@
           <source>1.7</source>
           <target>1.7</target>
         </configuration>
-      </plugin>
+      </plugin>      
+      <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>com.apparel.DecisionEngineMain</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			
     </plugins>   
   </build>
 </project>

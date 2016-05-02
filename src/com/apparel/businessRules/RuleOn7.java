@@ -8,7 +8,6 @@ public class RuleOn7 implements IRule{
 	private static final String sAction = "leaving house";
 	private static String sCommand = "7";
 	private static final String sDesc = "Leave House";
-	private static final String sFail = "fail";
 
 	/**
 	 * Checks if command had already been executed

@@ -8,7 +8,6 @@ public class RuleOn6 implements IRule {
 	private static final String sAction_Cold = "pants";
 	private static String sCommand = "6";
 	private static final String sDesc = "Put on pants";
-	private static final String sFail = "fail";
 
 	public String executeRule(ApparelWeatherInformation model) throws Exception {
 		//only one piece of each type can be worn

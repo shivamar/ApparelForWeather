@@ -24,12 +24,12 @@ public class DecisionEngine {
 			for (int i = 1; i < inputArgs.length; i++) {
 				inputArgs[i] = sanitiseString(inputArgs[i]);
 				if (i == 1 && !"8".equals(inputArgs[i])) { 
-					strB.append("fails"); 				// initial state should always be removing pajamas
+					strB.append("fail"); 				// initial state should always be removing pajamas
 					break;
 				}
 				response = rulesProcessor.processRule(apparelInfo, inputArgs[i]);
 				
-				if ("fails".equals(response)) {
+				if ("fail".equals(response)) {
 					strB.append(response);
 					break;
 				}
